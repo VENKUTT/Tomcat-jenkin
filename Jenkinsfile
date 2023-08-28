@@ -55,7 +55,8 @@ pipeline {
             steps {
                 sh '''
                docker build . --tag front-end:$BUILD_NUMBER
-               docker tag front-end:$BUILD_NUMBER elpdevopsbatch4.jfrog.io/elpdevops/batch4:$BUILD_NUMBER
+               docker tag front-end:$BUILD_NUMBER 586192913683.dkr.ecr.us-east-2.amazonaws.com/elpdevopsbatch4:latest
+
                 
                 '''
                 
@@ -66,10 +67,9 @@ pipeline {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
             steps{
-                withCredentials([usernamePassword(credentialsId: 'jenkinstojfrog', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-                 sh '''
-                 docker login -u $DOCKERHUB_USERNAME   -p $DOCKERHUB_PASSWORD elpdevopsbatch4.jfrog.io/
-                  docker push elpdevopsbatch4.jfrog.io/elpdevops/batch4:$BUILD_NUMBER
+                sh '''
+                 aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 586192913683.dkr.ecr.us-east-2.amazonaws.com
+                  docker push 586192913683.dkr.ecr.us-east-2.amazonaws.com/elpdevopsbatch4:latest
                     
                    ''' 
 }
@@ -78,4 +78,3 @@ pipeline {
         }
       
     }
-}
