@@ -35,11 +35,11 @@
  <distributionManagement>
       <snapshotRepository>
         <id>jfrog-snapshots</id>
-        <url>http://3.82.173.105:8082/artifactory/Batch-4-ELpdevops/</url>
+        <url>http://54.229.233.248:8082/artifactory/ELPDevOpsBatch05/</url>
       </snapshotRepository>
       <repository>
         <id>jfrog-releases</id>
-        <url>http://3.82.173.105:8082/artifactory/Batch-4-ELpdevops/</url>
+        <url>http://54.229.233.248:8082/artifactory/ELPDevOpsBatch05//</url>
       </repository>
     </distributionManagement>
 

@@ -1,116 +1,348 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GamutKart!</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ELPDevOps - DevOps Training Institute</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Add Font Awesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
+		}
 
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link href="css/sticky-footer-navbar.css" rel="stylesheet">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/bootstrap.min.js"></script>
-<!-- <script src="js/jquery.min.js"></script> -->
+		.container {
+			background-color: #ffffff;
+			padding: 20px;
+			margin-top: 20px;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
 
-<script>
-	$(function() {
-		$("#tabs").tabs();
-	});
-</script>
+		header {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		#tabs {
+			margin-top: 30px;
+		}
+
+		#tabs ul {
+			background-color: #007bff;
+			border-radius: 5px;
+			padding: 10px 0;
+		}
+
+		#tabs ul li a {
+			color: #ffffff;
+			padding: 10px 20px;
+			text-decoration: none;
+		}
+
+		#tabs ul li a:hover {
+			background-color: #0056b3;
+		}
+
+		#tabs .ui-tabs-active a {
+			background-color: #0056b3;
+		}
+
+		#tabs div {
+			padding: 20px;
+		}
+
+		.enquiry-form {
+			margin-top: 30px;
+		}
+
+		.enquiry-form h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.enquiry-form form {
+			max-width: 400px;
+			margin: 0 auto;
+		}
+
+		.enquiry-form form .form-group {
+			margin-bottom: 20px;
+		}
+
+		.enquiry-form form label {
+			display: block;
+			font-weight: bold;
+		}
+
+		.enquiry-form form input[type="text"],
+		.enquiry-form form input[type="email"],
+		.enquiry-form form textarea {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #cccccc;
+			border-radius: 5px;
+		}
+
+		.enquiry-form form textarea {
+			resize: vertical;
+		}
+
+		.enquiry-form form button {
+			background-color: #007bff;
+			color: #ffffff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		.enquiry-form form button:hover {
+			background-color: #0056b3;
+		}
+
+		.devops-images {
+			margin-top: 30px;
+		}
+
+		.devops-images .row img {
+			margin-bottom: 20px;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.whatsapp-icon {
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.whatsapp-icon a {
+			display: inline-block;
+			background-color: #25D366;
+			color: #ffffff;
+			border-radius: 50%;
+			padding: 20px;
+			font-size: 30px;
+		}
+
+        /* Additional CSS styles for a beautiful website */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #tabs {
+            margin-top: 30px;
+        }
+        #tabs ul {
+            background-color: #007bff;
+            border-radius: 5px;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        #tabs ul li a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        #tabs ul li a:hover {
+            background-color: #0056b3;
+        }
+        #tabs .ui-tabs-active a {
+            background-color: #0056b3;
+        }
+        #tabs div {
+            padding: 20px;
+        }
+        .enquiry-form {
+            margin-top: 30px;
+        }
+        .enquiry-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .enquiry-form form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .enquiry-form form .form-group {
+            margin-bottom: 20px;
+        }
+        .enquiry-form form label {
+            display: block;
+            font-weight: bold;
+        }
+        .enquiry-form form input[type="text"],
+        .enquiry-form form input[type="email"],
+        .enquiry-form form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+        .enquiry-form form textarea {
+            resize: vertical;
+        }
+        .enquiry-form form button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .enquiry-form form button:hover {
+            background-color: #0056b3;
+        }
+        .devops-images {
+            margin-top: 30px;
+        }
+        .devops-images .row img {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .whatsapp-icon {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .whatsapp-icon a {
+            display: inline-block;
+            background-color: #25D366;
+            color: #ffffff;
+            border-radius: 50%;
+            padding: 20px;
+            font-size: 30px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $("#tabs").tabs();
+        });
+    </script>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>ELPDevOps - DevOps Institute Contact Number: 9032317548</h1>
+        </header>
 
-	<div class="container">
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">AWS</a></li>
+                <li><a href="#tabs-2">Azure</a></li>
+                <li><a href="#tabs-3">DevOps</a></li>
+                <li><a href="#tabs-4">Docker</a></li>
+                <li><a href="#tabs-5">Kubernetes</a></li>
+                <li><a href="#tabs-6">Terraform</a></li>
+            </ul>
+            <div id="tabs-1">
+                <p>Information about AWS training...</p>
+                <p>Our AWS training offers hands-on experience through enterprise-level projects, providing students with practical skills to excel in the industry.</p>
+            </div>
+            <div id="tabs-2">
+                <p>Information about Azure training...</p>
+                <p>Our Azure training is project-oriented, enabling students to gain real-world expertise and tackle enterprise-level challenges with confidence.</p>
+            </div>
+            <div id="tabs-3">
+                <p>Information about DevOps training...</p>
+                <p>Our DevOps training focuses on real-world projects, allowing students to apply their knowledge in enterprise-level scenarios for successful implementation.</p>
+            </div>
+            <div id="tabs-4">
+                <p>Information about Docker training...</p>
+                <p>Our Docker training involves hands-on projects to master containerization techniques and deploy applications efficiently at scale.</p>
+            </div>
+            <div id="tabs-5">
+                <p>Information about Kubernetes training...</p>
+                <p>Our Kubernetes training emphasizes project-based learning, equipping students with the skills needed to manage containerized applications in production environments.</p>
+            </div>
+            <div id="tabs-6">
+                <p>Information about Terraform training...</p>
+                <p>Our Terraform training is project-oriented, enabling students to automate infrastructure as code and handle complex cloud deployments with ease.</p>
+            </div>
+        </div>
 
-		<header>
-			<h1>ELPDevOps . DEVOPS-TRAINING: 9032317548 ...</h1>
-		</header>
+        <!-- Enquiry Form -->
+        <div class="enquiry-form">
+            <h3>Enquiry Form</h3>
+            <form method="post" action="send_email.php">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                 <div class="form-group">
+                    <label for="email">contact:</label>
+                    <input type="email" class="form-control" id="contact" name="contact" placeholder="Enter your contact number" required>
+                </div>
 
-		<div id="tabs">
-			<ul>
-			<li><a href="#tabs-1">Fashion</a></li>
-				<li><a href="#tabs-2">Electronics</a></li>
-				<li><a href="#tabs-3">Groceries</a></li>
-				<li><a href="#tabs-4">Mobiles</a></li>
-			</ul>
-			<div id="tabs-1">
-				<p>Jenkins is a powerful application that allows continuous
-					integration and continuous delivery of projects, regardless of the
-					platform you are working on. It is a free source that can handle
-					any kind of build or continuous integration. You can integrate
-					Jenkins with a number of testing and deployment technologies</p>
-				<p>It is a great tool, but there are some issues regarding
-					scaling and performance (which is not so unusual). Other cool
-					solutions such as Travis and CircleCI, which are both hosted
-					solutions that do not require any maintenance on our side.</p>
-				<p>Jenkins is a software that allows continuous integration.
-					Jenkins will be installed on a server where the central build will
-					take place</p>
-			</div>
-			<div id="tabs-2">
-				<p>
-					Docker has <a
-						href="http://www.actonmagic.com/blog/container-vs-virtualization/">revolutionized
-						containerization</a> of applications allowing Devops to package any
-					application in a lightweight environment. The packaging is done in
-					a way which makes it as easy as installing a mobile app.It is
-					considered as most popular devops tools
-				</p>
-				<p>It&nbsp;is a application container platform for build, ship
-					and run your distributed apps.Ecosystem includes:</p>
-				<ol>
-					<li>Docker Engine, a portable, lightweight run-time and
-						packaging tool for building containerized apps.</li>
-					<li>Docker Hub, a cloud service for sharing apps and
-						automating workflows.</li>
-				</ol>
-				<p>
-					It allows the&nbsp;developers containerize their apps and can run
-					these apps anywhere. It is a powerful ecosystem where devops can
-					leverage many apps available on Docker Hub. It&nbsp;is built on the
-					top of Linux containers. <a href="http://docker">You can read
-						more about Docker here</a>
-				</p>
-			</div>
-			<div id="tabs-3">
-				<p>Ansible is a configuration management tool or devops tools
-					that is similar to Puppet and Chef.</p>
-				<p>Ansible is a very simple configuration language, I would say.
-					A beginner can write a basic script and deploy a few cloud
-					instances in just a day.</p>
-				<p>For configuration management, its just too easy to learn and
-					write in ANSIBLE as it understands “yaml” format. Developer
-					friendly and Devops friendly.</p>
-				<p>Ansible always runs in order and exits immediately when an
-					error occurs.&nbsp;Also while using Ansible, one has to know about
-					the commands that they need to give. For example yum for redhat
-					distributions and apt-get for ubuntu etc. In chef or puppet, they
-					take care of translating to individual distribution and user need
-					not worry about specifying correct commands as per the
-					distribution.</p>
-				<p>Earlier windows was not supported in Ansible but with windows
-					supported now, Ansible solves configuration problem at a small
-					scale.</p>
-				<p>But when it comes to scaling and complex configurations, of
-					course chef and puppet scores. As long as one is having 3 digits in
-					the number of servers, ansible looks to be ok and beyond that one
-					has to choose Chef or Puppet.</p>
-			</div>
-			<div id="tabs-4">
-				<p>Motorola</p>
-				<p>Apple</p>
-			</div>
-		</div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
 
-	</div >
+        <!-- DevOps Images -->
+        <div class="devops-images row">
+            <div class="col-md-3">
+                <img src="images/devops2.jpg" alt="DevOps Image 1" class="img-fluid rounded">
+            </div>
+            <!-- Add more images here if needed -->
+        </div>
 
-	<div class="container">
-		<footer> Copyright &copy; ELPDevOps  software services Pvt. Ltd. </footer>
-	</div>
+        <!-- WhatsApp Icon and Contact Us -->
+        <div class="whatsapp-icon">
+            <a href="https://wa.me/9059564278" target="_blank">
+                <i class="fab fa-whatsapp fa-4x"></i>
+            </a>
+            <p>Contact Us: 9059564278</p>
+        </div>
 
+    </div>
+
+    <div class="container">
+        <footer class="footer">
+            &copy; ELPDevOps Software Services Pvt. Ltd. | Contact: 9059564278
+        </footer>
+    </div>
 </body>
 </html>
+

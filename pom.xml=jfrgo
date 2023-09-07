@@ -1,0 +1,74 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ELPDevOps</groupId>
+  <artifactId>ELPDevOps</artifactId>
+  <packaging>war</packaging>
+  <version>1.1-RELEASE</version>
+
+  <properties>
+    <sonar.host.url>http://34.227.115.50:9000/</sonar.host.url>
+    <java.version>1.8</java.version>
+    <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>ELPDevOps</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.2</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>jfrog-snapshots</id>
+      <url>http://54.229.233.248:8082/artifactory/elpdevops/</url>
+    </snapshotRepository>
+    <repository>
+      <id>jfrog-releases</id>
+      <url>http://54.229.233.248:8082/artifactory/elpdevops/</url>
+    </repository>
+  </distributionManagement>
+
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
