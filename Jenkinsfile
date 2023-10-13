@@ -54,7 +54,7 @@ pipeline {
             }
             steps {
                 sh '''
-               docker build Dockerfile --tag surya123789/batch6:$BUILD_NUMBER
+               docker build -t surya123789/batch:$BUILD_NUMBER6 .
 
                 '''
                 
