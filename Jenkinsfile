@@ -24,7 +24,7 @@ pipeline {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
             steps {
-        withSonarQubeEnv('jenkins-sonar') {
+        withSonarQubeEnv('sonarqube') {
                     sh  "mvn sonar:sonar"
                 }
                 }
