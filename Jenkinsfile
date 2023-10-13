@@ -3,7 +3,7 @@ pipeline {
                 label 'linux'
                 }
     tools{
-        maven "maven"
+        maven "maven 3.9.4"
     }
     stages {
         stage('Clone the repository') {
