@@ -40,7 +40,7 @@ pipeline {
                       "files": [
                         {
                           "pattern": "*.war",
-                           "target": "Devops/"
+                           "target": "elpdevops/"
                         }
                     ]
                 }'''
