@@ -54,9 +54,8 @@ pipeline {
             }
             steps {
                 sh '''
-               docker build . --tag front-end:$BUILD_NUMBER
-               docker tag front-end:$BUILD_NUMBER elpdevops/batch6:$BUILD_NUMBER
-                
+               docker build . --tag surya123789/batch6:$BUILD_NUMBER
+
                 '''
                 
             }
@@ -69,7 +68,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'This_cred_is_for_docker_login', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                  sh '''
                  docker login -u $DOCKERHUB_USERNAME   -p $DOCKERHUB_PASSWORD
-                  docker push elpdevops/batch6:$BUILD_NUMBER
+                  docker push surya123789/batch6:$BUILD_NUMBER
                     
                    ''' 
 }
