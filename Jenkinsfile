@@ -54,7 +54,7 @@ pipeline {
             }
             steps {
                 sh '''
-               docker build -t surya123789/batch:$BUILD_NUMBER6 .
+               docker build -t surya123789/batch .
 
                 '''
                 
@@ -68,7 +68,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'This_cred_is_for_docker_login', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                  sh '''
                  docker login -u $DOCKERHUB_USERNAME   -p $DOCKERHUB_PASSWORD
-                  docker push surya123789/batch6:$BUILD_NUMBER
+                  docker push surya123789/batch6
                     
                    ''' 
 }
