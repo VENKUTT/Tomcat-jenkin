@@ -35,7 +35,7 @@ pipeline {
             }
             steps {
               rtUpload (
-                serverId: 'jenkins-artifactory',
+                serverId: 'artifactory',
                 spec: '''{
                       "files": [
                         {
