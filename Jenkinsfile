@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone the repository') {
             steps {
-               git branch: 'main', url: 'https://github.com/ELPDevOps/Tomcat.git'
+               git branch: 'Pushing-docker-image-dockerhub', url: 'https://github.com/ELPDevOps/Tomcat.git'
             }
         }
         stage('Build the maven code') {
