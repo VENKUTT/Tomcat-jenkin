@@ -59,7 +59,7 @@ pipeline {
             }
             steps {
                 sh '''
-               docker build -t 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:latest .
+               docker build -t 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:$BUILD_NUMBER .
                 
                 '''
                 
@@ -75,7 +75,7 @@ pipeline {
             steps{
                 sh '''
                  aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 586192913683.dkr.ecr.eu-west-1.amazonaws.com
-                  docker push 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:latest
+                  docker push 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:$BUILD_NUMBER
                     
                    ''' 
 }
@@ -94,7 +94,7 @@ pipeline {
                       aws eks update-kubeconfig --name surya --region eu-west-1
                       kubectl apply -f deployment.yaml
                       kubectl apply -f service.yaml
-                      kubectl set image deployment/web-app elpdevops=108290765801.dkr.ecr.us-east-1.amazonaws.com/web-application:latest
+                      kubectl set image deployment/web-app elpdevops=108290765801.dkr.ecr.us-east-1.amazonaws.com/web-application:$BUILD_NUMBER
                      
                     '''
                 }
