@@ -54,7 +54,7 @@ pipeline {
             }
             steps {
                 sh '''
-               docker build -t surya123789/batch .
+               docker build -t surya123789/batch6 .
 
                 '''
                 
