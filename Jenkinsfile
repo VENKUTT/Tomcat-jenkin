@@ -1,11 +1,11 @@
 pipeline {
     agent none
     tools{
-        maven "maven"
+        maven "maven 3.9.4"
     }
     stages {
         stage('Build the maven code') {
-            agnet { label 'linux' }
+            agent { label 'linux' }
         }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Static code analysis') {
             {
-            agnet { label 'linux' }
+            agent { label 'linux' }
         }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
@@ -29,7 +29,7 @@ pipeline {
             }
         stage('Push the artifacts into Jfrog artifactory') {
             {
-            agnet { label 'linux' }
+            agent { label 'linux' }
         }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
@@ -51,7 +51,7 @@ pipeline {
 
         stage('Build Docker Image') {
             {
-            agnet { label 'linux' }
+            agent { label 'linux' }
         }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
@@ -66,7 +66,7 @@ pipeline {
         }
         stage('Push Docker Image') {
             {
-            agnet { label 'linux' }
+            agent { label 'linux' }
         }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
