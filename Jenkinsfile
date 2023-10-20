@@ -1,17 +1,12 @@
 pipeline {
-    agent {
-                label 'linux'
-                }
+    agent none
     tools{
         maven "maven"
     }
     stages {
-        stage('Clone the repository') {
-            steps {
-               git branch: 'main', url: 'https://github.com/ELPDevOps/MultiBranch-ELP.git'
-            }
-        }
         stage('Build the maven code') {
+            agnet { label 'linux' }
+        }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
@@ -20,27 +15,33 @@ pipeline {
            }
         }
         stage('Static code analysis') {
+            {
+            agnet { label 'linux' }
+        }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
             steps {
-        withSonarQubeEnv('jenkins-sonar') {
+        withSonarQubeEnv('sonarqube') {
                     sh  "mvn sonar:sonar"
                 }
                 }
             }
         stage('Push the artifacts into Jfrog artifactory') {
+            {
+            agnet { label 'linux' }
+        }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
             steps {
               rtUpload (
-                serverId: 'jenkins-artifactory',
+                serverId: 'artifactory_to_jenkins',
                 spec: '''{
                       "files": [
                         {
                           "pattern": "*.war",
-                           "target": "Devops/"
+                           "target": "elpdevops/"
                         }
                     ]
                 }'''
@@ -49,31 +50,57 @@ pipeline {
         }
 
         stage('Build Docker Image') {
+            {
+            agnet { label 'linux' }
+        }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
             steps {
                 sh '''
-               docker build . --tag front-end:$BUILD_NUMBER
-               docker tag front-end:$BUILD_NUMBER 586192913683.dkr.ecr.us-east-2.amazonaws.com/elpdevopsbatch4:latest
-
+               docker build --tag 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:latest .
                 
                 '''
                 
             }
         }
         stage('Push Docker Image') {
+            {
+            agnet { label 'linux' }
+        }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
             steps{
                 sh '''
-                 aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 586192913683.dkr.ecr.us-east-2.amazonaws.com
-                  docker push 586192913683.dkr.ecr.us-east-2.amazonaws.com/elpdevopsbatch4:latest
+                 aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 586192913683.dkr.ecr.eu-west-1.amazonaws.com
+                  docker push 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:latest
                     
                    ''' 
 }
             }
+        stage('Deployto AWS EKS') {
+            {
+            agnet { label 'eks' }
+        }
+        
+            steps {
+                // configure AWS credentials
+               withAWS(credentials: 'aws_credentials', region: 'us-west-1') {
+
+                   // Connect to the EKS cluster
+                    sh '''
+                     aws eks update-kubeconfig --name dev-cluster --region us-west-1
+                      kubectl apply -f deployment.yaml
+                      kubectl apply -f service.yaml
+                      kubectl set image deployment/web-app web-application=108290765801.dkr.ecr.us-east-1.amazonaws.com/web-application:latest
+                      kubectl rollout status deployment/web-app
+                    '''
+                }
+           
+        }
+            
+        }
             
         }
       
