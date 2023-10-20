@@ -87,11 +87,11 @@ pipeline {
         
             steps {
                 // configure AWS credentials
-               withAWS(credentials: 'aws_credentials', region: 'us-west-1') {
+               withAWS(credentials: 'aws_credentials', region: 'eu-west-1') {
 
                    // Connect to the EKS cluster
                     sh '''
-                     aws eks update-kubeconfig --name dev-cluster --region us-west-1
+                      aws eks update-kubeconfig --name surya --region eu-west-1
                       kubectl apply -f deployment.yaml
                       kubectl apply -f service.yaml
                       kubectl set image deployment/web-app web-application=108290765801.dkr.ecr.us-east-1.amazonaws.com/web-application:latest
