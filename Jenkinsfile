@@ -87,7 +87,7 @@ pipeline {
         
             steps {
                 // configure AWS credentials
-               withAWS(credentials: 'aws_credentials', region: 'eu-west-1') {
+        // withAWS(credentials: 'aws_credentials', region: 'eu-west-1') {
 
                    // Connect to the EKS cluster
                     sh '''
@@ -103,6 +103,5 @@ pipeline {
         }
             
         }
-            
-        }
+        
 }
