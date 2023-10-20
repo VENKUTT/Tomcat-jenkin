@@ -5,8 +5,9 @@ pipeline {
     }
     stages {
         stage('Build the maven code') {
-            agent { label 'linux' }
-        }
+            agent { 
+                label 'linux'
+            }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
@@ -15,9 +16,9 @@ pipeline {
            }
         }
         stage('Static code analysis') {
-            {
-            agent { label 'linux' }
-        }
+            agent { 
+                label 'linux'
+            }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
@@ -28,9 +29,9 @@ pipeline {
                 }
             }
         stage('Push the artifacts into Jfrog artifactory') {
-            {
-            agent { label 'linux' }
-        }
+            agent { 
+                label 'linux'
+            }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
@@ -50,9 +51,9 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-            {
-            agent { label 'linux' }
-        }
+            agent { 
+                label 'linux'
+            }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
@@ -65,9 +66,9 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
-            {
-            agent { label 'linux' }
-        }
+            agent { 
+                label 'linux'
+            }
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             }
@@ -80,9 +81,9 @@ pipeline {
 }
             }
         stage('Deployto AWS EKS') {
-            {
-            agent { label 'eks' }
-        }
+            agent { 
+                label 'eks'
+            }
         
             steps {
                 // configure AWS credentials
