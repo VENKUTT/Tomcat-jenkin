@@ -4,6 +4,11 @@ pipeline {
         maven "maven 3.9.4"
     }
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
         stage('Build the maven code') {
             agent { 
                 label 'linux'
