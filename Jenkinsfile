@@ -81,7 +81,7 @@ pipeline {
             }
         stage('Deployto AWS EKS') {
             {
-            agnet { label 'eks' }
+            agent { label 'eks' }
         }
         
             steps {
@@ -103,5 +103,4 @@ pipeline {
         }
             
         }
-      
-    }
+
