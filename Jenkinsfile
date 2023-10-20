@@ -94,7 +94,7 @@ pipeline {
                       aws eks update-kubeconfig --name surya --region eu-west-1
                       kubectl apply -f deployment.yaml
                       kubectl apply -f service.yaml
-                      kubectl set image deployment/web-app web-application=108290765801.dkr.ecr.us-east-1.amazonaws.com/web-application:latest
+                      kubectl set image deployment/web-app elpdevops=108290765801.dkr.ecr.us-east-1.amazonaws.com/web-application:latest
                      
                     '''
                 }
