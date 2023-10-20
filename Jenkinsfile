@@ -59,7 +59,7 @@ pipeline {
             }
             steps {
                 sh '''
-               docker build --tag 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:latest .
+               docker build -t 586192913683.dkr.ecr.eu-west-1.amazonaws.com/elpdevops:latest .
                 
                 '''
                 
