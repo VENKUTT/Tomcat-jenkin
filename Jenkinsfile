@@ -77,7 +77,7 @@ pipeline {
         }
         stage('Deploy to Your Own Kubernetes Cluster') {
             steps {
-                withCredentials([file(credentialsId: 'batch5_k8_cluster', variable: 'KUBECONFIG_FILE')]) {
+                withCredentials([file(credentialsId: 'kubernetes_cred', variable: 'KUBECONFIG_FILE')]) {
                     script {
                         // sh "cat ${KUBECONFIG_FILE}"
                         //sh "kubectl config set-context --namespace=elpdevops --kubeconfig=${KUBECONFIG_FILE}"
