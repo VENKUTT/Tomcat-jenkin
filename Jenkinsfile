@@ -47,6 +47,15 @@ pipeline {
               )
           }
         }
+        stage('Deploy to tomcat') {
+            steps {
+                         sh "pwd"
+             sh "scp target/*.war root@18.144.174.101:/opt/tomcat/apache-tomcat-10.1.16/webapps"
+             sh "ssh root@18.144.174.101 '/opt/tomcat/apache-tomcat-10.1.16/bin/startup.sh'"
+
+        }
+    }
+
     }
 }
 
