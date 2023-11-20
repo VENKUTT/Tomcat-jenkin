@@ -257,7 +257,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>ELPDevOps - DevOps Institute Contact Number: 9059564278</h1>
+            <h1>ELPDevOps - DevOps Institute Contact Number: 9000000</h1>
         </header>
 
         <div id="tabs">
