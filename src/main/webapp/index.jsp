@@ -257,7 +257,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>ELPDevOps - DevOps Institute Contact Number: 9032317548</h1>
+            <h1>VENKUTTDevOps - DevOps Institute Contact Number: 9032317548</h1>
         </header>
 
         <div id="tabs">
