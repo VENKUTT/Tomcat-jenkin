@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-                label 'linux'
-                }
+    agent any
     tools{
         maven "maven_3.9.5"
     }
