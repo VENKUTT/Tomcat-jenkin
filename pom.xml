@@ -56,7 +56,6 @@ http://34.227.115.50:9000/
 </sonar.host.url>
     <java.version>1.8</java.version>
     <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
-        ssssvvvv
 </properties>
 </profile>
 </profiles>
